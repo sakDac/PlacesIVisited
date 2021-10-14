@@ -11,6 +11,14 @@ public func configure(_ app: Application) throws {
     // This is to configure leaf
     app.views.use(.leaf)
     
+    // Configuring DB
+    app.databases.use(.postgres(hostname: "localhost",
+                                username: "postgres",
+                                password: "",
+                                database: "placesdb"), as: .psql)
+    
+    app.migrations.add(CreatePlaces())
+    
     // register routes
     try routes(app)
 }
