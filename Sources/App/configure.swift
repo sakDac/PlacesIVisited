@@ -13,10 +13,11 @@ public func configure(_ app: Application) throws {
     
     // Configuring DB
     app.databases.use(.postgres(hostname: "localhost",
-                                username: "postgres",
-                                password: "",
+                                username: "saket",
+                                password: "Saket1234",
                                 database: "placesdb"), as: .psql)
-    
+
+    // Starting migration to keep logs for db changes
     app.migrations.add(CreatePlaces())
     
     // register routes
